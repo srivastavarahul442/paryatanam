@@ -26,17 +26,25 @@ export function BookingCard({ tour }: BookingCardProps) {
     standard: tour.price * 0.9
   };
 
+  // Ensure calculations always have a numeric price even when some tiers are omitted
+  const resolvedPrices = {
+    standard: packagePrices.standard ?? Math.round(tour.price * 0.9),
+    value: packagePrices.value ?? Math.round(tour.price),
+    premium: packagePrices.premium ?? Math.round(tour.price * 1.2),
+    exclusive: packagePrices.exclusive ?? Math.round(tour.price * 1.5),
+  };
+
   const isFamily = tour.categoryId === "family-trip";
   const isSchool = tour.categoryId === "school-group";
   const divisor = isSchool ? 1 : (isFamily ? 6 : 2); 
 
   // If perPersonPrice is provided in data, use it for the primary display
-  const adultPriceToDisplay = (packageType === "standard" || packageType === "value") && tour.perPersonPrice 
-    ? tour.perPersonPrice 
-    : Math.round(packagePrices[packageType] / divisor);
+  const adultPriceToDisplay = (packageType === "standard" || packageType === "value") && tour.perPersonPrice
+    ? tour.perPersonPrice
+    : Math.round(resolvedPrices[packageType] / divisor);
 
-  const originalFullPrice = packagePrices[packageType] * 1.2;
-  const discount = Math.round(((originalFullPrice - packagePrices[packageType]) / originalFullPrice) * 100);
+  const originalFullPrice = resolvedPrices[packageType] * 1.2;
+  const discount = Math.round(((originalFullPrice - resolvedPrices[packageType]) / originalFullPrice) * 100);
 
   const [date, setDate] = useState<string>("");
   const [travellers, setTravellers] = useState<string>(isSchool ? "Min. 15 Persons" : (isFamily ? "6 Persons" : "2 Adults, 0 Children"));

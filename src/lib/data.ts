@@ -36,16 +36,16 @@ export interface TourPackage {
   categoryId: string;
   perPersonPrice?: number;
   tierPrices: {
-    standard: number;
-    value: number;
-    premium: number;
-    exclusive: number;
+    standard?: number;
+    value?: number;
+    premium?: number;
+    exclusive?: number;
   };
   tierDetails?: {
-    standard: string[];
-    value: string[];
-    premium: string[];
-    exclusive: string[];
+    standard?: string[];
+    value?: string[];
+    premium?: string[];
+    exclusive?: string[];
   };
 }
 

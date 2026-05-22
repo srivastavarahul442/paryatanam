@@ -13,7 +13,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = React.useState("explore");
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main suppressHydrationWarning className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
       
