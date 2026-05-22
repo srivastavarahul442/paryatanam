@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { getTourBySlug } from "@/lib/data";
@@ -10,6 +12,23 @@ import { BookingCard } from "@/components/tour/BookingCard";
 import { Inclusions } from "@/components/tour/Inclusions";
 import { Itinerary } from "@/components/tour/Itinerary";
 
+function getLocalPackageImages(slug: string): string[] {
+  const galleryDir = path.join(process.cwd(), "public", "images", "packages", slug);
+  if (!fs.existsSync(galleryDir)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(galleryDir)
+    .filter((fileName) => /\.(jpe?g|png|webp)$/i.test(fileName))
+    .sort((a, b) => {
+      const aIndex = parseInt(a.match(/^(\d+)/)?.[1] ?? "0", 10);
+      const bIndex = parseInt(b.match(/^(\d+)/)?.[1] ?? "0", 10);
+      return aIndex - bIndex;
+    })
+    .map((fileName) => `/images/packages/${slug}/${fileName}`);
+}
+
 export default async function TourDetailPage({
   params,
 }: {
@@ -21,6 +40,9 @@ export default async function TourDetailPage({
   if (!tour) {
     notFound();
   }
+
+  const localGalleryImages = getLocalPackageImages(tour.slug);
+  const galleryImages = localGalleryImages.length > 0 ? localGalleryImages : tour.images;
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-neutral-50 to-white">
@@ -93,7 +115,7 @@ export default async function TourDetailPage({
 
       {/* Main Content */}
       <div className="container mx-auto px-4 md:px-6 -mt-6 sm:-mt-10 pb-16 sm:pb-20 relative z-10">
-        <ImageGallery images={tour.images} />
+        <ImageGallery images={galleryImages} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 mt-8 sm:mt-12">
           <div className="lg:col-span-2 space-y-8 sm:space-y-10">
