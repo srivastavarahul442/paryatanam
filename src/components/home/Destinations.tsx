@@ -3,6 +3,7 @@ import { brandContent } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 
 const destinations = [
+  // Updated image for Pokhara Family Tour
   {
     name: "Spiritual & Cultural Visits",
     description: "Temples, ashrams, and sacred sites.",
