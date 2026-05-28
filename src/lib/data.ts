@@ -757,7 +757,7 @@ export const tourPackages: TourPackage[] = [
     rating: 4.8,
     reviews: 142,
     images: [
-      "/images/packages/pokhara-family-tour/3.jpg",
+      "/images/packages/pokhara-family-tour/3.JPG",
       "https://images.unsplash.com/photo-1610483833215-6809dc39199c?q=80&w=2070&auto=format&fit=crop", // Manakamana Cable Car context
       "https://images.unsplash.com/photo-1526481280693-3bfa756150f1?q=80&w=2070&auto=format&fit=crop", // World Peace Pagoda
       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2070&auto=format&fit=crop"  // Sarangkot Sunrise
