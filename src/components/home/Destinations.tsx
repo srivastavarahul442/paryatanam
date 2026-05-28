@@ -10,6 +10,7 @@ const destinations = [
     image:
       "/images/packages/pokhara-family-tour/1.png",
   },
+  // Updated image for Pokhara Family Tour
   {
     name: "Jungle Safari",
     description: "Valmiki Tiger Reserve adventure.",
