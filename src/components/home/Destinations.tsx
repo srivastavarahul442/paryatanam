@@ -7,7 +7,7 @@ const destinations = [
     name: "Spiritual & Cultural Visits",
     description: "Temples, ashrams, and sacred sites.",
     image:
-      "https://media3.thrillophilia.com/filestore/3gqbw1tu9pac2318jv8jtl2mzdpi_shutterstock_1096957235.jpg?h=422&w=auto&dpr=1.125",
+      "/images/packages/pokhara-family-tour/1.png",
   },
   {
     name: "Jungle Safari",
@@ -19,7 +19,7 @@ const destinations = [
     name: "Riverside Peace",
     description: "Serene moments by the Gandak river.",
     image:
-      "https://media3.thrillophilia.com/filestore/xcqho076dgqoczuzlimfpavs6p9m_camp-riverside-rishikesh.jpeg?dpr=1.125&w=1707",
+      "/images/packages/valmikinagar-nepal-two-day-package/3.jpeg",
   },
   {
     name: "Scenic Views",
