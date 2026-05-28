@@ -17,6 +17,7 @@ const destinations = [
     image:
       "https://wildkasarwadi.com/assets/uploads/experiences/jungle_safari.jpg",
   },
+  // Updated image for Pokhara Family Tour
   {
     name: "Riverside Peace",
     description: "Serene moments by the Gandak river.",
